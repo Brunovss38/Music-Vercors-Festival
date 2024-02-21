@@ -71,8 +71,10 @@ legend {
 #pass1jourDate,
 #pass2joursDate,
 #pass3joursDate{
-  display: flex;
-  flex-direction: column;
+display: none;
+  /* display: flex;
+  flex-direction: column; */
+  margin-left: 50px;
 }
 fieldset{
   border-radius: 15px;
