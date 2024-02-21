@@ -53,12 +53,17 @@ checkbox3.addEventListener("change", function () {
 });
 
 let casqueEnfant = document.querySelector("input[id=enfantsOui]");
+
 let casqueEnfantNon = document.querySelector("input[id=enfantsNon]");
 
 casqueEnfant.addEventListener("change", function () {
   if (casqueEnfant.checked) {
     document.querySelector("#casqueEnfant").style.display = "block";
-  } else {
+  }
+})
+
+casqueEnfantNon.addEventListener("change", function () {
+  if (casqueEnfantNon.checked) {
     document.querySelector("#casqueEnfant").style.display = "none";
   }
 });
