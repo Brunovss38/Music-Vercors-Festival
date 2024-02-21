@@ -1,3 +1,4 @@
+// AFFICHAGE DES 3 ETAPES
 function suivant() {
   document.querySelector("#reservation").style.display = "none";
   document.querySelector("#options").style.display = "block";
@@ -17,12 +18,12 @@ function retourOptions() {
   document.querySelector("#options").style.display = "block";
 }
 
-// checkbox.style.display = "none";
-// checkbox2.style.display = "none";
-// checkbox3.style.display = "none";
+// AFFICHAGES DES TARIFS
 
 let checkboxTarifReduit = document.querySelector("input[id=tarifReduit]");
 let checkbox = document.querySelector("input[id=pass1jour]");
+let checkbox2 = document.querySelector("input[id=pass2jours]");
+let checkbox3 = document.querySelector("input[id=pass3jours]");
 
 checkbox.addEventListener("change", function () {
   if (checkbox.checked) {
@@ -31,8 +32,13 @@ checkbox.addEventListener("change", function () {
     document.querySelector("#pass1jourDate").style.display = "none";
   }
 });
-
-let checkbox2 = document.querySelector("input[id=pass2jours]");
+checkbox.addEventListener("change", function () {
+  if (checkbox.checked && checkboxTarifReduit.checked) {
+    document.querySelector("#pass1jourreduit").style.display = "block";
+  } else {
+    document.querySelector("#pass1jourreduit").style.display = "none";
+  }
+});
 
 checkbox2.addEventListener("change", function () {
   if (checkbox2.checked) {
@@ -41,8 +47,13 @@ checkbox2.addEventListener("change", function () {
     document.querySelector("#pass2joursDate").style.display = "none";
   }
 });
-
-let checkbox3 = document.querySelector("input[id=pass3jours]");
+checkbox2.addEventListener("change", function () {
+  if (checkbox2.checked && checkboxTarifReduit.checked) {
+    document.querySelector("#pass2joursreduit").style.display = "block";
+  } else {
+    document.querySelector("#pass2joursreduit").style.display = "none";
+  }
+});
 
 checkbox3.addEventListener("change", function () {
   if (checkbox3.checked && checkboxTarifReduit.checked) {
@@ -52,15 +63,15 @@ checkbox3.addEventListener("change", function () {
   }
 });
 
+//AFFICHAGE DES OPTIONS
 let casqueEnfant = document.querySelector("input[id=enfantsOui]");
-
 let casqueEnfantNon = document.querySelector("input[id=enfantsNon]");
 
 casqueEnfant.addEventListener("change", function () {
   if (casqueEnfant.checked) {
     document.querySelector("#casqueEnfant").style.display = "block";
   }
-})
+});
 
 casqueEnfantNon.addEventListener("change", function () {
   if (casqueEnfantNon.checked) {

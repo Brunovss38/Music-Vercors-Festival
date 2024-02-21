@@ -37,12 +37,13 @@ session_start();
                 <label for="choixJour2">Pass pour la journée du 02/07</label> <br>
                 <input type="radio" name="passSelection" id="choixJour3" />
                 <label for="choixJour3">Pass pour la journée du 03/07</label> <br>
-
-                <input type="radio" name="passSelection" id="pass1jourreduit" />
+            <div id="pass1jourreduit">
+                <input type="radio" name="passSelection" id="pass1jourreduit"  />
                 <label for="pass1jourreduit">Pass 1 jour : 25€</label> <br>
+            </div>
             </section>
 
-            <input type="checkbox" name="passSelection" id="pass2jours" />
+            <input type="checkbox" name="passSelection" id="pass2jours"  />
             <label for="pass2jours">Pass 2 jours : 70€</label>
             <br>
 
@@ -52,10 +53,11 @@ session_start();
                 <label for="choixJour12">Pass pour deux journées du 01/07 au 02/07</label> <br>
                 <input type="radio" name="passSelection" id="choixJour23" />
                 <label for="choixJour23">Pass pour deux journées du 02/07 au 03/07</label> <br>
+                <div id="pass2joursreduit">
                 <input type="radio" name="passSelection" id="pass2joursreduit" />
                 <label for="pass2joursreduit">Pass 2 jours : 50€</label> <br>
+    </div>
             </section>
-
             <input type="checkbox" name="passSelection" id="pass3jours" />
             <label for="pass3jours">Pass 3 jours : 100€</label><br>
             <!-- tarifs réduits : à n'afficher que si tarif réduit est sélectionné -->
@@ -70,26 +72,28 @@ session_start();
         <fieldset id="options">
             <legend>Options</legend>
             <h3>Réserver un emplacement de tente :</h3>
-            <input type="radio" id="tenteNuit1" name="tenteNuit1" />
-            <label for="tenteNuit1">Pour la nuit du 01/07 (5€)</label>
+            
+            <input type="radio" id="tenteNuit1" name="tenteNuit" />
+            <label for="tenteNuit1">Pour la nuit du 01/07 (5€)</label><br>
 
-            <input type="radio" id="tenteNuit2" name="tenteNuit2" />
-            <label for="tenteNuit2">Pour la nuit du 02/07 (5€)</label>
+            <input type="radio" id="tenteNuit2" name="tenteNuit" />
+            <label for="tenteNuit2">Pour la nuit du 02/07 (5€)</label><br>
 
-            <input type="radio" id="tenteNuit3" name="tenteNuit3" />
-            <label for="tenteNuit3">Pour la nuit du 03/07 (5€)</label>
-            <input type="radio" id="tente3Nuits" name="tente3Nuits" />
-            <label for="tente3Nuits">Pour les 3 nuits (12€)</label>
+            <input type="radio" id="tenteNuit3" name="tenteNuit" />
+            <label for="tenteNuit3">Pour la nuit du 03/07 (5€)</label><br>
+            <input type="radio" id="tente3Nuits" name="tenteNuit" />
+            <label for="tente3Nuits">Pour les 3 nuits (12€)</label><br>
+        
 
             <h3>Réserver un emplacement de camion aménagé :</h3>
-            <input type="radio" id="vanNuit1" name="vanNuit1" />
-            <label for="vanNuit1">Pour la nuit du 01/07 (5€)</label>
-            <input type="radio" id="vanNuit2" name="vanNuit2" />
-            <label for="vanNuit2">Pour la nuit du 02/07 (5€)</label>
-            <input type="radio" id="vanNuit3" name="vanNuit3" />
-            <label for="vanNuit3">Pour la nuit du 03/07 (5€)</label>
-            <input type="radio" id="van3Nuits" name="van3Nuits" />
-            <label for="van3Nuits">Pour les 3 nuits (12€)</label>
+            <input type="radio" id="vanNuit1" name="vanNuit" />
+            <label for="vanNuit1">Pour la nuit du 01/07 (5€)</label><br>
+            <input type="radio" id="vanNuit2" name="vanNuit" />
+            <label for="vanNuit2">Pour la nuit du 02/07 (5€)</label><br>
+            <input type="radio" id="vanNuit3" name="vanNuit" />
+            <label for="vanNuit3">Pour la nuit du 03/07 (5€)</label><br>
+            <input type="radio" id="van3Nuits" name="vanNuit" />
+            <label for="van3Nuits">Pour les 3 nuits (12€)</label><br>
 
             <h3>Venez-vous avec des enfants ?</h3>
             <input type="radio" name="enfants" id="enfantsOui" />
@@ -144,4 +148,3 @@ session_start();
 </body>
 
 </html>
-3
