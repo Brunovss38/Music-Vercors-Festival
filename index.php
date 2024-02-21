@@ -1,4 +1,9 @@
-<?php ?>
+<?php
+session_start();
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -34,18 +39,20 @@
             </section>
 
             <input type="checkbox" name="passSelection" id="pass2jours">
+            <label for="pass2jours">Pass 2 jours : 70€</label>
 
             <!-- Si case cochée, afficher le choix des jours -->
             <section id="pass2joursDate">
                 <input type="checkbox" name="passSelection" id="choixJour12">
-                <label for="choixJour1">Pass pour deux journées du 01/07 au 02/07</label>
+                <label for="choixJour12">Pass pour deux journées du 01/07 au 02/07</label>
                 <input type="checkbox" name="passSelection" id="choixJour23">
-                <label for="choixJour2">Pass pour deux journées du 02/07 au 03/07</label>
+                <label for="choixJour23">Pass pour deux journées du 02/07 au 03/07</label>
             </section>
 
-            <label for="pass2jours">Pass 2 jours : 70€</label>
             <input type="checkbox" name="passSelection" id="pass3jours">
             <label for="pass3jours">Pass 3 jours : 100€</label>
+
+
             <!-- tarifs réduits : à n'afficher que si tarif réduit est sélectionné -->
             <input type="checkbox" name="passSelection" id="pass1jour">
             <label for="pass1jour">Pass 1 jour : 25€</label>
@@ -107,9 +114,9 @@
             <label for="email">Email :</label>
             <input type="email" name="email" id="email" required>
             <label for="telephone">Téléphone :</label>
-            <input type="text" name="telephone" id="telephone" required>
+            <input type="number" name="telephone" id="telephone" required>
             <label for="adressePostale">Adresse Postale :</label>
-            <input type="text" name="adressePostale" id="adressePostale" required>
+            <input type="number" name="adressePostale" id="adressePostale" required>
 
             <input type="submit" name="soumission" class="bouton" value="Réserver">
         </fieldset>
