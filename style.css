@@ -29,13 +29,9 @@ body {
 .coordonnees {
   display: flex;
   flex-direction: column;
-text-align: left;
-
-  
- 
+  text-align: left;
 }
 .coordonnees input {
-
   height: 20px;
   width: 40%;
   margin-left: 100px;
@@ -65,17 +61,19 @@ legend {
   color: rgb(175, 175, 240);
   font-size: 50px;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  
 }
 
 #pass1jourDate,
 #pass2joursDate,
-#pass3joursDate{
-display: none;
-  /* display: flex;
-  flex-direction: column; */
+#pass3joursDate
+{
+  display: none;
   margin-left: 50px;
 }
-fieldset{
+fieldset {
   border-radius: 15px;
+}
+
+#casqueEnfant{
+  display: none;
 }
