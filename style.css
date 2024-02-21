@@ -1,0 +1,79 @@
+body {
+  background-image: url(./styles/aditya-chinchure.jpg);
+  color: white;
+}
+
+#reservation {
+  background-color: rgba(0, 0, 0, 0.79);
+  display: block;
+  padding: 3%;
+  margin: 5%;
+}
+
+#options {
+  background-color: rgba(0, 0, 0, 0.79);
+
+  display: none;
+  padding: 3%;
+  margin: 5%;
+}
+
+#coordonnees {
+  background-color: rgba(0, 0, 0, 0.79);
+  display: none;
+  text-align: center;
+  padding: 3%;
+  margin: 5%;
+}
+
+.coordonnees {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+.coordonnees input {
+  height: 20px;
+  width: 40%;
+  margin-left: 100px;
+}
+.bouton1S,
+.bouton2S {
+  cursor: pointer;
+  background-color: gray;
+  height: 20px;
+  width: 60px;
+  text-align: center;
+  margin-top: 2%;
+}
+
+.bouton1R,
+.bouton2R,
+.bouton3R {
+  cursor: pointer;
+  background-color: gray;
+  height: 20px;
+  width: 60px;
+  text-align: center;
+  margin-top: 2%;
+}
+
+legend {
+  color: rgb(175, 175, 240);
+  font-size: 50px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#pass1jourDate,
+#pass2joursDate,
+#pass3joursDate
+{
+  display: none;
+  margin-left: 50px;
+}
+fieldset {
+  border-radius: 15px;
+}
+
+#casqueEnfant{
+  display: none;
+}
