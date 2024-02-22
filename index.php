@@ -139,7 +139,7 @@ if (isset($_GET['erreur'])) {
                     </div>
                 <?php } ?>
                 <label for="prenom">Prénom :</label>
-                <input type="text" name="prenom" id="prenom" required />
+                <input type="text" name="prenom" id="prenom"  />
                 <?php if ($code_erreur === 3) { ?>
                     <div class="message echec">
                         Merci de renseigner un mail valide.

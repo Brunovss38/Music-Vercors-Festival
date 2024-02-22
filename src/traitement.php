@@ -10,7 +10,7 @@ $Database = new Database();
 if (
     isset($_POST['nom']) &&
     isset($_POST['prenom']) &&
-    isset($_POST['mail']) &&
+    isset($_POST['email']) &&
     isset($_POST['telephone']) &&
     isset($_POST['adressePostale']) &&
     // isset($_POST['nombrePlace']) &&
@@ -21,7 +21,7 @@ if (
 
     !empty($_POST['nom']) &&
     !empty($_POST['prenom']) &&
-    !empty($_POST['mail']) &&
+    !empty($_POST['email']) &&
     !empty($_POST['telephone']) &&
     !empty($_POST['adressePostale']) 
     // empty($_POST['nombrePlace']) &&
@@ -33,8 +33,9 @@ if (
 ) {
     $nom = htmlentities($_POST['nom']);
     $prenom = htmlentities($_POST['prenom']);
-    $telephone = filter_var($_POST['telephone'], FILTER_SANITIZE_NUMBER_INT);
-    $adressePostale = filter_var($_POST['adressePostale'], FILTER_SANITIZE_NUMBER_INT);
+    $telephone = htmlentities($_POST['telephone']);
+    $adressePostale = htmlentities($_POST['adressePostale']);
+
     // :$nombrePlace = $_POST['nombrePlace'];
     // $passJours = $_POST['passJours']
     // $tarif = $_POST['tarif'];
@@ -42,7 +43,7 @@ if (
     
 
 
-echo" ghjgjg";
+echo $_POST['telephone'];
 
     if (is_numeric($telephone)) {
         echo "Numero de telephone valide";
@@ -51,22 +52,22 @@ echo" ghjgjg";
         die;
     }
 
-    if (filter_var($_POST['mail'], FILTER_VALIDATE_EMAIL)) {
-        $mail = htmlentities($_POST['mail']);
+    if (filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
+        $mail = htmlentities($_POST['email']);
     } else {
         header('location:/./index.php?erreur=' . ERREUR_EMAIL . '&section=coordonnees');
         die;
     }
 echo"creation user";
 
-    $user = new  User($id, $nom, $prenom, $mail, $telephone, $adressePostale);
+    $user = new  User( $nom, $prenom, $mail, $telephone, $adressePostale);
     var_dump($user);
-    die;
-    $return = $Database->saveUtilisateur($user);
+    
+    $retour = $Database->saveUtilisateur($user);
 
 
     if ($retour) {
-        header('location: /./connexion.php?succes=inscription');
+        header('location: /./index.php?succes=reservationreussi');
         die;
     } else {
         header('location:/./index.php?erreur=' . ERREUR_ENREGISTREMENT . '&section=coordonnees');
@@ -75,6 +76,13 @@ echo"creation user";
     
 }else {
     echo "erreur";
+    header('location:/./index.php?erreur=' . ERREUR_CHAMP_VIDE . '&section=coordonnees');
+
+    var_dump(($_POST['nom']),
+        ($_POST['prenom']),
+        ($_POST['email']) ,
+        ($_POST['telephone']),
+        ($_POST['adressePostale']));
 }
 
 // else {

@@ -11,12 +11,13 @@ class User
 
 
     function __construct(
-        int|string $id,
+        
         string $nom,
         string $prenom,
         string $mail,
         int $telephone,
-        int $adressePostale,
+        string $adressePostale,
+        int|string $id ="a creer"
 
     ) {
 
@@ -34,7 +35,7 @@ class User
     }
     public function setId(int|string $id)
     {
-        if (is_string($id) && $id === "à créer") {
+        if (is_string($id) && $id === "a creer") {
             $this->_id = $this->CreerNouvelId();
         } else {
             $this->_id = $id;
@@ -76,11 +77,11 @@ class User
     }
 
 
-    public function getAdressePostale(): int
+    public function getAdressePostale(): string
     {
         return $this->_adressePostale;
     }
-    public function setAdressePostale(int $adressePostale)
+    public function setAdressePostale(string $adressePostale)
     {
         $this->_adressePostale = $adressePostale;
     }
