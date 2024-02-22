@@ -1,26 +1,22 @@
 <?php
-require 'config.php';
-require 'classes/Database.php';
-require 'classes/User.php';
+require './config.php';
+require './classes/Database.php';
+require './classes/User.php';
 
-$Database = new Database();
+
+var_dump($_POST);
+die;
+// $Database = new Database();
 
 if (
-    isset($_POST['nom']) &&
-    isset($_POST['prenom']) &&
-    isset($_POST['mail']) &&
-    isset($_POST['telephone']) &&
-    isset($_POST['adressePostale']) &&
-    !empty($_POST['nom']) &&
-    !empty($_POST['prenom']) &&
-    !empty($_POST['mail']) &&
-    !empty($_POST['telephone']) &&
-    !empty($_POST['adressePostale'])
+    isset($_POST['nom']) && isset($_POST['prenom']) && isset($_POST['mail']) && isset($_POST['telephone']) && isset($_POST['adressePostale']) &&
+    !empty($_POST['nom']) && !empty($_POST['prenom']) && !empty($_POST['mail']) && !empty($_POST['telephone']) && !empty($_POST['adressePostale'])
 ) {
     $nom = htmlentities($_POST['nom']);
     $prenom = htmlentities($_POST['prenom']);
     $telephone = filter_var($_POST['telephone'], FILTER_SANITIZE_NUMBER_INT);
     $adressePostale = filter_var($_POST['adressePostale'], FILTER_SANITIZE_NUMBER_INT);
+
 
     if (is_numeric($telephone)) {
         echo "Numero de telephone valide";
@@ -36,7 +32,7 @@ if (
         die;
     }
 
-    $user = new User($nom, $prenom, $mail, $telephone, $adressePostale);
+    // $user = new User($nom, $prenom, $mail, $telephone, $adressePostale);
 
     $retour = $Database->saveUtilisateur($user);
 
@@ -48,6 +44,6 @@ if (
         die;
     }
 } else {
-    header('location:/./index.php?erreur=' . ERREUR_CHAMP_VIDE);
+    header('location:/./index.php?erreur=' . ERREUR_CHAMP_VIDE . '&section=coordonnees');
     die;
 }
