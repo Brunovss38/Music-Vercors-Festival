@@ -78,3 +78,6 @@ casqueEnfantNon.addEventListener("change", function () {
     document.querySelector("#casqueEnfant").style.display = "none";
   }
 });
+
+
+// ERREUR 
