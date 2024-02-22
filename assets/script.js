@@ -1,64 +1,80 @@
+// AFFICHAGE DES 3 ETAPES
 function suivant() {
-    document.querySelector("#reservation").style.display = "none";
-    document.querySelector("#options").style.display = "block";
+  document.querySelector("#reservation").style.display = "none";
+  document.querySelector("#options").style.display = "block";
 }
 
 function suivantCoordonnees() {
-    document.querySelector("#options").style.display = "none";
-    document.querySelector("#coordonnees").style.display = "block";
+  document.querySelector("#options").style.display = "none";
+  document.querySelector("#coordonnees").style.display = "block";
 }
 
 function retourReservation() {
-    document.querySelector("#options").style.display = "none";
-    document.querySelector("#reservation").style.display = "block";
+  document.querySelector("#options").style.display = "none";
+  document.querySelector("#reservation").style.display = "block";
 }
 function retourOptions() {
-    document.querySelector("#coordonnees").style.display = "none";
-    document.querySelector("#options").style.display = "block";
+  document.querySelector("#coordonnees").style.display = "none";
+  document.querySelector("#options").style.display = "block";
 }
 
-// checkbox.style.display = "none";
-// checkbox2.style.display = "none";
-// checkbox3.style.display = "none";
+//AFFICHAGES DES TARIFS
 
-let checkboxTarifReduit = document.querySelector("input[id=tarifReduit]");
-let checkbox = document.querySelector("input[id=pass1jour]");
+let checkboxTarifReduit = document.getElementById("tarifReduit");
+let checkbox = document.getElementById("pass1jour");
+let checkbox2 = document.getElementById("pass2jours");
+let checkbox3 = document.getElementById("pass3jours");
 
 checkbox.addEventListener("change", function () {
-    if (checkbox.checked) {
-        document.querySelector("#pass1jourDate").style.display = "block";
-    } else {
-        document.querySelector("#pass1jourDate").style.display = "none";
-    }
+  if (checkbox.checked) {
+    document.querySelector("#pass1jourDate").style.display = "block";
+  } else {
+    document.querySelector("#pass1jourDate").style.display = "none";
+  }
 });
-
-let checkbox2 = document.querySelector("input[id=pass2jours]");
+checkbox.addEventListener("change", function () {
+  if (checkbox.checked && checkboxTarifReduit.checked) {
+    document.querySelector("#pass1jourreduit").style.display = "block";
+  } else {
+    document.querySelector("#pass1jourreduit").style.display = "none";
+  }
+});
 
 checkbox2.addEventListener("change", function () {
-    if (checkbox2.checked) {
-        document.querySelector("#pass2joursDate").style.display = "block";
-    } else {
-        document.querySelector("#pass2joursDate").style.display = "none";
-    }
+  if (checkbox2.checked) {
+    document.querySelector("#pass2joursDate").style.display = "block";
+  } else {
+    document.querySelector("#pass2joursDate").style.display = "none";
+  }
 });
-
-let checkbox3 = document.querySelector("input[id=pass3jours]");
+checkbox2.addEventListener("change", function () {
+  if (checkbox2.checked && checkboxTarifReduit.checked) {
+    document.querySelector("#pass2joursreduit").style.display = "block";
+  } else {
+    document.querySelector("#pass2joursreduit").style.display = "none";
+  }
+});
 
 checkbox3.addEventListener("change", function () {
-    if (checkbox3.checked && checkboxTarifReduit.checked) {
-        document.querySelector("#pass3joursDate").style.display = "block";
-    } else {
-        document.querySelector("#pass3joursDate").style.display = "none";
-    }
+  if (checkbox3.checked && checkboxTarifReduit.checked) {
+    document.querySelector("#pass3joursDate").style.display = "block";
+  } else {
+    document.querySelector("#pass3joursDate").style.display = "none";
+  }
 });
 
-let casqueEnfantOui = document.querySelector("input[id=enfantsOui]");
-let casqueEnfantNon = document.querySelector("input[id=enfantsNon]");
+//AFFICHAGE DES OPTIONS
+let casqueEnfant = document.getElementById("enfantsOui");
+let casqueEnfantNon = document.getElementById("enfantsNon");
 
 casqueEnfant.addEventListener("change", function () {
-    if (casqueEnfant.checked) {
-        document.querySelector("#casqueEnfant").style.display = "";
-    } else {
-        document.querySelector("#casqueEnfant").style.display = "none";
-    }
+  if (casqueEnfant.checked) {
+    document.querySelector("#casqueEnfant").style.display = "block";
+  }
+});
+
+casqueEnfantNon.addEventListener("change", function () {
+  if (casqueEnfantNon.checked) {
+    document.querySelector("#casqueEnfant").style.display = "none";
+  }
 });
