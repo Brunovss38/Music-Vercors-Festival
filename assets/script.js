@@ -78,3 +78,13 @@ casqueEnfantNon.addEventListener("change", function () {
     document.querySelector("#casqueEnfant").style.display = "none";
   }
 });
+
+
+// ERREUR 
+console.log(window.location.search);
+if(window.location.search === "?erreur=3&section=coordonnees"){
+    document.querySelector("#coordonnees").style.display = "block";
+    document.querySelector("#reservation").style.display = "none";
+
+  console.log("ouiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii");
+}
