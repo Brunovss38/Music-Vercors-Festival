@@ -139,21 +139,22 @@ if (isset($_GET['erreur'])) {
                     </div>
                 <?php } ?>
                 <label for="prenom">Prénom :</label>
-                <input type="text" name="prenom" id="prenom"  />
+                <input type="text" name="prenom" id="prenom" required />
                 <?php if ($code_erreur === 3) { ?>
-                    <div class="message echec">
-                        Merci de renseigner un mail valide.
-                    </div>
-                <?php } ?>
-                <label for="email">Email :</label>
-                <input type="email" name="email" id="email" required />
-                <?php if ($code_erreur === 1) { ?>
                     <div class="message echec">
                         Merci de renseigner votre prenom.
                     </div>
                 <?php } ?>
+                <label for="email">Email :</label>
+                <input type="email" name="email" id="email" required />
+                <?php
+                if ($code_erreur === 1) { ?>
+                    <div class="message echec">
+                        Merci de renseigner votre email.
+                    </div>
+                <?php } ?>
                 <label for="telephone">Téléphone :</label>
-                <input type="number" name="telephone" id="telephone" required />
+                <input type="text" name="telephone" id="telephone" required />
                 <?php if ($code_erreur === 2) { ?>
                     <div class="message echec">
                         Merci de renseigner un numero de telephone valide.
@@ -161,13 +162,23 @@ if (isset($_GET['erreur'])) {
                 <?php } ?>
                 <label for="adressePostale">Adresse Postale :</label>
                 <input type="text" name="adressePostale" id="adressePostale" required />
-
+                <?php if ($code_erreur === 3) { ?>
+                    <div class="message echec">
+                        Merci de renseigner votre adresse.
+                    </div>
+                <?php } ?>
 
                 <input type="submit" name="soumission" class="bouton" value="Réserver" />
                 <br>
                 <?php if ($code_erreur === 4) { ?>
                     <div class="message echec">
-                        Tous les champs sont-ils bien remplis ? </div>
+                        "Tous les champs sont-ils bien remplis ?";
+                        <style>
+                            .message {
+                                background-color: rgb(100, 0, 0);
+                            }
+                        </style>
+                    </div>
                 <?php } ?>
                 <p class="bouton3R" onclick="retourOptions()">Retour</p>
             </fieldset>

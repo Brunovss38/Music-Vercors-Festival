@@ -5,6 +5,8 @@ require './classes/User.php';
 
 
 
+var_dump($_POST);
+
 $Database = new Database();
 
 if (
@@ -29,7 +31,6 @@ if (
     // empty($_POST['tarif']) 
 
 
-
 ) {
     $nom = htmlentities($_POST['nom']);
     $prenom = htmlentities($_POST['prenom']);
@@ -40,44 +41,41 @@ if (
     // $passJours = $_POST['passJours']
     // $tarif = $_POST['tarif'];
    
-    
-
-
-echo $_POST['telephone'];
 
     if (is_numeric($telephone)) {
-        echo "Numero de telephone valide";
+        
     } else {
-        header('location:/./index.php?erreur=' . ERREUR_TELEPHONE . '&section=coordonnees');
+        header('location:/../index.php?erreur=' . ERREUR_TELEPHONE . '&section=coordonnees');
         die;
     }
 
     if (filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
-        $mail = htmlentities($_POST['email']);
+        $email = htmlentities($_POST['email']);
     } else {
-        header('location:/./index.php?erreur=' . ERREUR_EMAIL . '&section=coordonnees');
+        header('location:/../index.php?erreur=' . ERREUR_EMAIL . '&section=coordonnees');
+        
         die;
     }
-echo"creation user";
 
-    $user = new  User( $nom, $prenom, $mail, $telephone, $adressePostale);
+
+    $user = new  User( $nom, $prenom, $email, $telephone, $adressePostale);
     var_dump($user);
     
     $retour = $Database->saveUtilisateur($user);
 
 
     if ($retour) {
-        header('location: /./index.php?succes=reservationreussi');
+        header('location: /../index.php?succes=reservationreussi');
+        
         die;
     } else {
-        header('location:/./index.php?erreur=' . ERREUR_ENREGISTREMENT . '&section=coordonnees');
+        header('location:/../index.php?erreur=' . ERREUR_ENREGISTREMENT . '&section=coordonnees');
         die;
     }
     
 }else {
-    echo "erreur";
-    header('location:/./index.php?erreur=' . ERREUR_CHAMP_VIDE . '&section=coordonnees');
-
+    
+    header('location:/../index.php?erreur=' . ERREUR_CHAMP_VIDE . '&section=coordonnees');
     var_dump(($_POST['nom']),
         ($_POST['prenom']),
         ($_POST['email']) ,
@@ -85,7 +83,4 @@ echo"creation user";
         ($_POST['adressePostale']));
 }
 
-// else {
-//     header('location:/./index.php?erreur=' . ERREUR_CHAMP_VIDE . '&section=coordonnees');
-//     die;
-// }
+

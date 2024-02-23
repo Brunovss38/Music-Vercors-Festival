@@ -4,7 +4,7 @@ class User
     private $_id;
     private $_nom;
     private $_prenom;
-    private $_mail;
+    private $_email;
     private $_telephone;
     private $_adressePostale;
 
@@ -14,7 +14,7 @@ class User
         
         string $nom,
         string $prenom,
-        string $mail,
+        string $email,
         int $telephone,
         string $adressePostale,
         int|string $id ="a creer"
@@ -24,7 +24,7 @@ class User
         $this->setId($id);
         $this->setNom($nom);
         $this->setPrenom($prenom);
-        $this->setMail($mail);
+        $this->setMail($email);
         $this->setTelephone($telephone);
         $this->setAdressePostale($adressePostale);
     }
@@ -59,11 +59,11 @@ class User
     }
     public function getMail(): string
     {
-        return $this->_mail;
+        return $this->_email;
     }
-    public function setMail(string $mail)
+    public function setMail(string $email)
     {
-        $this->_mail = $mail;
+        $this->_email = $email;
     }
 
 
@@ -116,7 +116,7 @@ class User
             "id" => $this->getId(),
             "nom" => $this->getNom(),
             "prenom" => $this->getPrenom(),
-            "mail" => $this->getMail(),
+            "email" => $this->getMail(),
             "telephone" => $this->getTelephone(),
             "adressePostale" => $this->getAdressePostale(),
 
