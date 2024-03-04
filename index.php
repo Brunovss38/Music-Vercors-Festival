@@ -25,7 +25,7 @@ if (isset($_GET['erreur'])) {
         <fieldset id="reservation">
             <legend>Réservation</legend>
             <h3>Nombre de réservation(s) :</h3>
-            <input type="number" name="nombrePlaces" id="NombrePlaces" value="1" min="1" />
+            <input type="number" name="nombrePlaces" id="nombrePlaces" min="1" />
             <h3>Réservation(s) en tarif réduit</h3>
             <input type="checkbox" name="tarifReduit" id="tarifReduit" />
             <label for="tarifReduit">Ma réservation sera en tarif réduit</label>
@@ -45,7 +45,7 @@ if (isset($_GET['erreur'])) {
                 <label for="choixJour3">Pass pour la journée du 03/07</label> <br>
                 <div id="pass1jourreduit">
                     <input type="checkbox" name="pass1jourreduit" id="pass1jourreduit" value="pass1jourreduit" />
-                    <label for="pass1jourreduit">Pass 1 jour : 25€</label> <br>
+                    <label for="pass1jourreduit">Pass 1 jour tarif reduit : 25€</label> <br>
                 </div>
             </section>
 
@@ -133,27 +133,29 @@ if (isset($_GET['erreur'])) {
                 <legend>Coordonnées</legend>
                 <label for="nom">Nom :</label>
                 <input type="text" name="nom" id="nom" required />
-                <?php if ($code_erreur === 3) { ?>
+                <?php if ($code_erreur === 6) { ?>
                     <div class="message echec">
                         Merci de renseigner votre nom.
                     </div>
                 <?php } ?>
                 <label for="prenom">Prénom :</label>
-                <input type="text" name="prenom" id="prenom"  />
-                <?php if ($code_erreur === 3) { ?>
-                    <div class="message echec">
-                        Merci de renseigner un mail valide.
-                    </div>
-                <?php } ?>
-                <label for="email">Email :</label>
-                <input type="email" name="email" id="email" required />
-                <?php if ($code_erreur === 1) { ?>
+                <input type="text" name="prenom" id="prenom" required />
+                <?php if ($code_erreur === 7) { ?>
                     <div class="message echec">
                         Merci de renseigner votre prenom.
                     </div>
                 <?php } ?>
+                <label for="email">Email :</label>
+                <input type="email" name="email" id="email" required />
+                <?php
+                if ($code_erreur === 1) { ?>
+                    <div class="message echec">
+                        Merci de renseigner votre email.
+                    </div>
+                <?php } ?>
+
                 <label for="telephone">Téléphone :</label>
-                <input type="number" name="telephone" id="telephone" required />
+                <input type="text" name="telephone" id="telephone" required />
                 <?php if ($code_erreur === 2) { ?>
                     <div class="message echec">
                         Merci de renseigner un numero de telephone valide.
@@ -161,15 +163,32 @@ if (isset($_GET['erreur'])) {
                 <?php } ?>
                 <label for="adressePostale">Adresse Postale :</label>
                 <input type="text" name="adressePostale" id="adressePostale" required />
-
+                <?php if ($code_erreur === 8) { ?>
+                    <div class="message echec">
+                        Merci de renseigner votre adresse.
+                    </div>
+                <?php } ?>
 
                 <input type="submit" name="soumission" class="bouton" value="Réserver" />
                 <br>
                 <?php if ($code_erreur === 4) { ?>
                     <div class="message echec">
-                        Tous les champs sont-ils bien remplis ? </div>
+                        Tous les champs sont-ils bien remplis ?
+                        <style>
+                            .message {
+                                background-color: rgb(100, 0, 0);
+                            }
+                        </style>
+                    </div>
                 <?php } ?>
                 <p class="bouton3R" onclick="retourOptions()">Retour</p>
+                <div class="succes">
+                    <?php
+                    if ($code_erreur === 5) { ?>
+                        Votre reservation a ete enregistré
+                    <?php }
+                    ?>
+                </div>
             </fieldset>
 
         </div>

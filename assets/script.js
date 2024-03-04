@@ -80,11 +80,18 @@ casqueEnfantNon.addEventListener("change", function () {
 });
 
 
-// ERREUR 
-console.log(window.location.search);
-if(window.location.search === "?erreur=3&section=coordonnees"){
-    document.querySelector("#coordonnees").style.display = "block";
-    document.querySelector("#reservation").style.display = "none";
 
-  console.log("ouiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii");
+
+// RETOUR A LA PAGE COORDONNEES APRES ERREURS
+if (
+  window.location.search === "?erreur=1&section=coordonnees" ||
+  window.location.search === "?erreur=2&section=coordonnees" ||
+  window.location.search === "?erreur=3&section=coordonnees" ||
+  window.location.search === "?erreur=4&section=coordonnees"
+) {
+  document.querySelector("#coordonnees").style.display = "block";
+  document.querySelector("#reservation").style.display = "none";
+  document.querySelector("#options").style.display = "none";
+} else if (window.location.search === "?succes=reservationreussi") {
+  document.querySelector(".succes").style.display = "block";
 }

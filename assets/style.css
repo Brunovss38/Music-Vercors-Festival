@@ -1,6 +1,6 @@
 body {
-  background-image: url(./aditya-chinchure.jpg) ;
-  
+  background-image: url(./aditya-chinchure.jpg);
+
   color: white;
 }
 form {
@@ -88,3 +88,5 @@ fieldset {
 #casqueEnfant {
   display: none;
 }
+
+
