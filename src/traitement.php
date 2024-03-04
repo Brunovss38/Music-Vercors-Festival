@@ -56,9 +56,16 @@ if (
         die;
     }
 
+    var_dump($nombrePlaces);
 
-    $user = new  User($nom, $prenom, $email, $telephone, $adressePostale, $nombrePlaces
-    // , $passJours, $tarif
+    $user = new  User(
+        $nom,
+        $prenom,
+        $email,
+        $telephone,
+        $adressePostale,
+        $nombrePlaces
+        // , $passJours, $tarif
     );
     var_dump($user);
 
@@ -73,9 +80,7 @@ if (
     } else {
         header('location:/../index.php?erreur=' . ERREUR_ENREGISTREMENT . '&section=coordonnees');
     }
-}
-else {
-    
+} else {
+
     header('location:/../index.php?erreur=' . ERREUR_CHAMP_VIDE . '&section=coordonnees');
-   
 }

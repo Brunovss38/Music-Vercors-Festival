@@ -25,7 +25,7 @@ if (isset($_GET['erreur'])) {
         <fieldset id="reservation">
             <legend>Réservation</legend>
             <h3>Nombre de réservation(s) :</h3>
-            <input type="number" name="nombrePlaces" id="nombrePlaces" value="1" min="1" />
+            <input type="number" name="nombrePlaces" id="nombrePlaces" min="1" />
             <h3>Réservation(s) en tarif réduit</h3>
             <input type="checkbox" name="tarifReduit" id="tarifReduit" />
             <label for="tarifReduit">Ma réservation sera en tarif réduit</label>
