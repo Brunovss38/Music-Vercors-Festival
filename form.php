@@ -139,7 +139,7 @@ if (isset($_GET['erreur'])) {
                     </div>
                 <?php } ?>
                 <label for="prenom">Prénom :</label>
-                <input type="text" name="prenom" id="prenom"  />
+                <input type="text" name="prenom" id="prenom" />
                 <?php if ($code_erreur === 3) { ?>
                     <div class="message echec">
                         Merci de renseigner un mail valide.
@@ -161,6 +161,10 @@ if (isset($_GET['erreur'])) {
                 <?php } ?>
                 <label for="adressePostale">Adresse Postale :</label>
                 <input type="text" name="adressePostale" id="adressePostale" required />
+                <label for="password">Mot de passe :</label>
+                <input type="password" id="password" name="password" required>
+                <label for="password2">Vérifier le Mot de passe :</label>
+                <input type="password" id="password2" name="password2" required>
 
 
                 <input type="submit" name="soumission" class="bouton" value="Réserver" />

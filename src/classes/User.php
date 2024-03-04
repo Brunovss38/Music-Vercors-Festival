@@ -1,4 +1,5 @@
 <?php
+
 class User
 {
     private $_id;
@@ -7,26 +8,34 @@ class User
     private $_mail;
     private $_telephone;
     private $_adressePostale;
+    private $_password;
+    private $_role;
+
+
 
 
 
     function __construct(
-        
+
         string $nom,
         string $prenom,
         string $mail,
         int $telephone,
         string $adressePostale,
-        int|string $id ="a creer"
+        string $password,
+        string $role
+
 
     ) {
 
-        $this->setId($id);
+        $this->setId($this->CreerNouvelId());
         $this->setNom($nom);
         $this->setPrenom($prenom);
         $this->setMail($mail);
         $this->setTelephone($telephone);
         $this->setAdressePostale($adressePostale);
+        $this->setPassword($password);
+        $this->setRole($role);
     }
 
     public function getId(): int
@@ -110,16 +119,46 @@ class User
         return $i;
     }
 
+    public function getPassword(): string
+    {
+        return $this->_password;
+    }
+    public function setPassword(string $password)
+    {
+        $this->_password = $password;
+    }
+
+    public function getRole(): string
+    {
+        return $this->_role;
+    }
+    public function setRole(string $role): void
+    {
+        $this->_role = $role;
+    }
+
+    public function isAdmin()
+    {
+        if ($this->getRole() == "admin") {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+
     public function getObjectToArray(): array
     {
         return [
+
             "id" => $this->getId(),
             "nom" => $this->getNom(),
             "prenom" => $this->getPrenom(),
             "mail" => $this->getMail(),
             "telephone" => $this->getTelephone(),
+            "password" => $this->getPassword(),
             "adressePostale" => $this->getAdressePostale(),
-
+            "role" => $this->getRole()
         ];
     }
 }
