@@ -92,4 +92,6 @@ if (
   document.querySelector("#coordonnees").style.display = "block";
   document.querySelector("#reservation").style.display = "none";
   document.querySelector("#options").style.display = "none";
+} else if (window.location.search === "?succes=reservationreussi") {
+  document.querySelector(".succes").style.display = "block";
 }

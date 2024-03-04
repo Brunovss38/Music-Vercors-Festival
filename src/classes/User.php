@@ -7,17 +7,25 @@ class User
     private $_email;
     private $_telephone;
     private $_adressePostale;
+    private $_nombrePlaces;
+    // private $_passJours;
+    // private $_tarif;
+
+
 
 
 
     function __construct(
-        
+
         string $nom,
         string $prenom,
         string $email,
         int $telephone,
         string $adressePostale,
-        int|string $id ="a creer"
+        int $nombrePlaces,
+        // int|String $passJours,
+        // int $tarif,
+        int|string $id = "a creer"
 
     ) {
 
@@ -27,6 +35,9 @@ class User
         $this->setMail($email);
         $this->setTelephone($telephone);
         $this->setAdressePostale($adressePostale);
+        $this->setNombrePlaces($nombrePlaces);
+        // $this ->setPassJours($passJours);
+        // $this->setTarif($tarif);
     }
 
     public function getId(): int
@@ -86,6 +97,30 @@ class User
         $this->_adressePostale = $adressePostale;
     }
 
+    public function getNombrePlaces(): int
+    {
+        return $this->_nombrePlaces;
+    }
+    public function setNombrePlaces(int $nombrePlaces)
+    {
+        $this->_nombrePlaces = $nombrePlaces;
+    }
+    //public function getPassJours(): int
+    //{
+    //     return $this->_passJours;
+    // }
+    // public function setPassJours(int|string $passJours)
+    // {
+    //     $this->_passJours = $passJours;
+    // }
+    // public function getTarif(): int
+    // {
+    //     return $this->_tarif;
+    // }
+    // public function setTarif(int $tarif)
+    // {
+    //     $this->_tarif = $tarif;
+    // }
 
     private function CreerNouvelId()
     {
@@ -119,6 +154,10 @@ class User
             "email" => $this->getMail(),
             "telephone" => $this->getTelephone(),
             "adressePostale" => $this->getAdressePostale(),
+            "nombrePlaces" => $this->getNombrePlaces(),
+            // "passJours" => $this->getPassJours(),
+            // "tarif" => $this->getTarif(),
+
 
         ];
     }
