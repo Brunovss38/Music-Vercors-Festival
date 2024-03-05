@@ -5,7 +5,7 @@ require './classes/User.php';
 
 
 
-var_dump($_POST);
+// var_dump($_POST);
 
 $Database = new Database();
 
@@ -16,9 +16,6 @@ if (
     isset($_POST['telephone']) &&
     isset($_POST['adressePostale']) &&
     isset($_POST['nombrePlaces']) &&
-    // isset($_POST['passJours']) &&
-    // isset($_POST['tarif']) &&
-
 
 
     !empty($_POST['nom']) &&
@@ -27,10 +24,6 @@ if (
     !empty($_POST['telephone']) &&
     !empty($_POST['adressePostale'])  &&
     !empty($_POST['nombrePlaces'])
-    // &&
-    // empty($_POST['passJours']) &&
-    // empty($_POST['tarif']) 
-
 
 ) {
     $nom = htmlentities($_POST['nom']);
@@ -38,9 +31,24 @@ if (
     $telephone = htmlentities($_POST['telephone']);
     $adressePostale = htmlentities($_POST['adressePostale']);
     $nombrePlaces = htmlentities($_POST['nombrePlaces']);
-    // $passJours = $_POST['passJours'];
-    // $tarif = $_POST['tarif'];
+    $pass1jourDate = "";
+    $pass2joursDate = "";
+    $pass3jours = "";
 
+    if (
+        isset($_POST['choixJour1']) ||
+        isset($_POST['choixJour2']) ||
+        isset($_POST['choixJour3'])
+    ) {
+        $pass1jourDate = 40;
+    } elseif (
+        isset($_POST['choixJour12']) ||
+        isset($_POST['choixJour23'])
+    ) {
+        $pass1jourDate = 70;
+    } elseif (isset($_POST['pass3jours'])) {
+        $pass3jourse = 100;
+    }
 
     if (is_numeric($telephone)) {
     } else {
@@ -54,9 +62,7 @@ if (
         header('location:/../index.php?erreur=' . ERREUR_EMAIL . '&section=coordonnees');
 
         die;
-    }
-
-    var_dump($nombrePlaces);
+    }   
 
     $user = new  User(
         $nom,
@@ -64,17 +70,20 @@ if (
         $email,
         $telephone,
         $adressePostale,
-        $nombrePlaces
-        // , $passJours, $tarif
+        $nombrePlaces,
+        $pass1jourDate,
+        $pass2joursDate,
+        $pass3jours
+
     );
-    var_dump($user);
+    // var_dump($user);
 
     $retour = $Database->saveUtilisateur($user);
 
 
     if ($retour) {
-        header('location: /../index.php?succes=reservationreussi' . SUCCES_ENREGISTREMENT . 'reservationreussi');
-
+        header('location: /../index.php?erreur=' . SUCCES_ENREGISTREMENT);
+           
 
         die;
     } else {

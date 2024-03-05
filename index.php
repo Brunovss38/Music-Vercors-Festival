@@ -24,7 +24,20 @@ if (isset($_GET['erreur'])) {
     <form action="src/traitement.php" id="inscription" method="POST">
         <fieldset id="reservation">
             <legend>Réservation</legend>
+            <div class="succes">
+                <?php if ($code_erreur === 5) {
+                    echo "Votre reservation a ete enregistré";
+                } ?>
+                <style>
+                    .succes {
+                        background-color: green;
+                        font-size: 25px;
+                    }
+                </style>
+
+            </div>
             <h3>Nombre de réservation(s) :</h3>
+
             <input type="number" name="nombrePlaces" id="nombrePlaces" min="1" />
             <h3>Réservation(s) en tarif réduit</h3>
             <input type="checkbox" name="tarifReduit" id="tarifReduit" />
@@ -132,21 +145,21 @@ if (isset($_GET['erreur'])) {
             <fieldset class="coordonnees">
                 <legend>Coordonnées</legend>
                 <label for="nom">Nom :</label>
-                <input type="text" name="nom" id="nom" required />
+                <input type="text" name="nom" id="nom" />
                 <?php if ($code_erreur === 6) { ?>
                     <div class="message echec">
                         Merci de renseigner votre nom.
                     </div>
                 <?php } ?>
                 <label for="prenom">Prénom :</label>
-                <input type="text" name="prenom" id="prenom" required />
+                <input type="text" name="prenom" id="prenom" />
                 <?php if ($code_erreur === 7) { ?>
                     <div class="message echec">
                         Merci de renseigner votre prenom.
                     </div>
                 <?php } ?>
                 <label for="email">Email :</label>
-                <input type="email" name="email" id="email" required />
+                <input type="email" name="email" id="email" />
                 <?php
                 if ($code_erreur === 1) { ?>
                     <div class="message echec">
@@ -182,13 +195,14 @@ if (isset($_GET['erreur'])) {
                     </div>
                 <?php } ?>
                 <p class="bouton3R" onclick="retourOptions()">Retour</p>
-                <div class="succes">
-                    <?php
-                    if ($code_erreur === 5) { ?>
-                        Votre reservation a ete enregistré
-                    <?php }
-                    ?>
-                </div>
+                <?php
+
+                if ($code_erreur === 3) {
+                    echo "MERCI de remplir tous les champs !";
+                }
+
+                ?>
+
             </fieldset>
 
         </div>
